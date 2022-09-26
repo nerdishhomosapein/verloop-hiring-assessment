@@ -1,0 +1,34 @@
+summary: "Get latitude, longitude for a given address"
+description: "This is a simple API to fetch the latitude and longitude for a given address"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+  - "text/xml"
+parameters:
+  - in: "body"
+    name: "body"
+    description: "Accepts a address of type string and an output format either json or xml"
+    required: "true"
+    schema:
+      type: "object"
+      properties:
+        address:
+          type: string
+        output_format:
+          type: string
+      example: {'address': "# 3582,13 G Mai    n Road, 4th Cross Rd, Indiranagar, Bengaluru, Karnataka 560008", 'output_format': "json"}
+
+responses:
+  200:
+    description: "Success response"
+    schema:
+      type: "object"
+      properties:
+        address:
+          type: string
+        coordinates:
+          type: object
+      example: {'address': "# 3582,13 G Mai    n Road, 4th Cross Rd, Indiranagar, Bengaluru, Karnataka 560008", 'coordinates': {'lat': "12.9658286", 'lng': "77.63948169999999"}}
+      xml:
+        name: "root"
