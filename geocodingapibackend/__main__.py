@@ -1,10 +1,9 @@
 from flasgger.utils import swag_from
-
 from flask import Response, jsonify, request
-from flask.json import load
+
+from geocodingapibackend import create_app
 
 from .geoCodedResponse import getGeoCodedRequest
-from geocodingapibackend import create_app
 
 app = create_app()
 
