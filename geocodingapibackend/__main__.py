@@ -4,6 +4,7 @@ from flask import Response, jsonify, request
 from geocodingapibackend import create_app
 
 from .geoCodedResponse import getGeoCodedRequest
+from .schemaValidation import SchemaValidator
 
 app = create_app()
 
@@ -18,13 +19,20 @@ def home_page():
 def getAddressDetails():
 
     data = request.json
-    address = data.get("address", "")
-    output_format = data.get("output_format", None)
+    schema = SchemaValidator(response=data)
+    errorMessages = schema.isCorrect()
+
+    if len(errorMessages) > 0:
+        _ = {"status": "error", "message": errorMessages}
+
+        return jsonify(_), 400
+
+    address = data.get("address")
+    output_format = data.get("output_format")
 
     response = getGeoCodedRequest(address)
-    print(f"{response=}")
 
-    if output_format == "xml":
+    if output_format.lower() == "xml":
         from dicttoxml import dicttoxml
 
         data = dicttoxml(response)
