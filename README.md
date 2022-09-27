@@ -5,7 +5,7 @@
  ## Project Setup
      git clone https://github.com/nerdishhomosapein/verloop-hiring-assessment.git
      cd verloop-hiring-assessment
-     Create a new .env file, and paste your API there.
+     Create a new .env file, and paste your API key there like API_KEY=YOUR_API_KEY.
      poetry init
      poetry shell
      poetry run python -m geocodingApiBackend
