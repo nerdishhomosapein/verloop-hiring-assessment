@@ -16,6 +16,8 @@
 ##### Curl
     curl http://localhost:5000/getAddressDetails -H '{"Content-Type":"application/json"}' -d '{"address": "nehru museum, new delhi 110011", "output_format": "json"}'
     
+##### Postman
+    ![Postman](https://github.com/nerdishhomosapein/verloop-hiring-assessment/blob/main/images/getAddressDetailsApiJson.png "Post Request Json Format")
     
 ### Accessing Api Documentation using the Swagger UI link.
     http://localhost:5000/apidocs/#/default/post_getAddressDetails
