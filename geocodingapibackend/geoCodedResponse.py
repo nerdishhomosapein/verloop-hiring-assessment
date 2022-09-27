@@ -14,8 +14,8 @@ def replaceSpacesWithAdittionSign(address):
 def getGeoCodedRequest(address):
 
     cleanedAddress = replaceSpacesWithAdittionSign(address)
-    print(f"{cleanedAddress=}")
-    print(f"{API_KEY=}")
+    # print(f"{cleanedAddress=}")
+    # print(f"{API_KEY=}")
     try:
         response = requests.get(
             f"https://maps.googleapis.com/maps/api/geocode/json?address={cleanedAddress}&key={API_KEY}"
